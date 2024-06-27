@@ -13,6 +13,9 @@ func (c *Client) Volume() (float32, error) {
 		return 0, err
 	}
 	sinks, err := c.sinks()
+	if err != nil {
+		return 0, err
+	}
 	for _, sink := range sinks {
 		if sink.Name != s.DefaultSink {
 			continue
